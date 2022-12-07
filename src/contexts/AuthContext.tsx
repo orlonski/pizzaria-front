@@ -51,19 +51,19 @@ export function AuthProvider({ children }: AuthProviderProps) {
     useEffect(() => {
         const { '@nextauth.token': token } = parseCookies();
 
-        if (token) {
-            api.get('/me').then(response => {
-                const { id, name, email } = response.data;
+        // if (token) {
+        //     api.get('/me').then(response => {
+        //         const { id, name, email } = response.data;
 
-                setUser({
-                    id,
-                    name,
-                    email
-                })
-            }).catch(() => {
-                signOut();
-            })
-        }
+        //         setUser({
+        //             id,
+        //             name,
+        //             email
+        //         })
+        //     }).catch(() => {
+        //         signOut();
+        //     })
+        // }
     })
 
     async function signIn({ email, password }: SignInProps) {
